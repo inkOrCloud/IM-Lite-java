@@ -28,7 +28,7 @@ public class LoginService {
     private final JWTManager jwtManager;
 
     public LoginService(@Autowired AccountManager accountManager,
-                        @Value("${login.expire}") Long expire,
+                        @Value("${login.expire:86400}") Long expire,
                         @Autowired AccountProfileManager accountProfileManager,
                         @Autowired JWTManager jwtManager) {
         this.accountManager = accountManager;

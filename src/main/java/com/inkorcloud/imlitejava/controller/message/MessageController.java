@@ -30,8 +30,7 @@ public class MessageController {
     }
 
     @MessageMapping("/chat/send")
-    public void sendMessage(@NotNull @Payload Message message,
-                            Principal principal) {
+    public void sendMessage(@NotNull @Payload Message message, Principal principal) {
         messageManager.sendMessage(message, (UserInfo) principal);
     }
 

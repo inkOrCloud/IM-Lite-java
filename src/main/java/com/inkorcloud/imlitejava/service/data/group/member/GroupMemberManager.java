@@ -74,7 +74,9 @@ public class GroupMemberManager {
         memberWrapper.isNull(GroupMember::getDeleteTime);
         var member = groupMemberMapper.selectOne(memberWrapper);
         LambdaQueryWrapper<GroupMember> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(GroupMember::getMemberId, userInfo.getUserId()).isNull(GroupMember::getDeleteTime);
+        wrapper.eq(GroupMember::getGroupId, groupId)
+                .eq(GroupMember::getMemberId, userInfo.getUserId())
+                .isNull(GroupMember::getDeleteTime);
         var operator = groupMemberMapper.selectOne(wrapper);
         if (operator == null ||
                 operator.getRole().ordinal() < GroupMemberRole.ADMIN.ordinal() ||

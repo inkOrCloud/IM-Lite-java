@@ -1,0 +1,39 @@
+#file: noinspection SpellCheckingInspection
+file-manager:
+  type: "s3"
+  endpoint: "https://s3.example.com"
+  bucket: "imlist"
+  accessId: ""
+  accessKey: ""
+  expire: 18000
+  readPreSign: true
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: AUTO
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: ""
+    url: ""
+  mail:
+    host: stmp.ex.com
+    protocol: smtp
+    default-encoding: UTF-8
+    from: example@test.com
+    username: example@test.com
+    password: xxxxxxxxxxx
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+
+  jackson:
+    default-property-inclusion: non_null
+login:
+  expire: 604800
